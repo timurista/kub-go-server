@@ -39,7 +39,7 @@ module "alb" {
   load_balancer_type = "application"
 
   vpc_id             = "${module.vpc.vpc_id}"
-  subnets            = module.vpc.public_subnets
+  subnets            = "${module.vpc.public_subnets}"
   security_groups    = ["${module.web_server_sg.this_security_group_id}"]
 
   access_logs = {

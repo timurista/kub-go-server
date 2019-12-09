@@ -1,5 +1,6 @@
 #----root/main.tf-----
 provider "aws" {
+    region = "us-east-1"
 }
 
 module "storage" {
@@ -8,5 +9,5 @@ module "storage" {
 
 module "networking" {
     source = "./networking"
-    bucket = module.storage.logs_bucket
+    bucket = "${module.storage.logs_bucket}"
 }
